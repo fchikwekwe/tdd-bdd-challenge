@@ -2,6 +2,7 @@ const mocha = require("mocha");
 const chai = require("chai");
 const utils = require("../utils");
 const expect = chai.expect;
+const assert = chai.assert;
 
 // ========================================================
 // NOTE: https://mochajs.org/#arrow-functions
@@ -21,14 +22,17 @@ it("should say hello", function() {
 // ========================================================
 
 it("should return the area of a 5 by 6 rectangle", function() {
-    const rectArea = utils.area();
-    expect(rectArea).to.be.a("integer");
+    const rectArea = utils.area(5, 6);
+    expect(rectArea).to.be.a("number");
     expect(rectArea).to.be.equal(30);
-    assert.is.number(rectArea);
-
+    assert.isNumber(rectArea);
 });
 
-it("should return the area of a circle of radius 5");
+it("should return the area of a circle of radius 5", function() {
+    const circArea = utils.circleArea(5);
+    expect(circArea).to.be.a('number');
+    expect(circArea).to.be.equal(Math.PI*5*5);
+});
 
 // ========================================================
 // Level 2 Challenges
@@ -38,9 +42,24 @@ it("should return the area of a circle of radius 5");
 // tests eventually.
 // ========================================================
 
-it("Should create a new (object) Item with name and price");
+it("Should create a new (object) Item with name and price", function() {
+    const item = new Object();
+    item.name = 'nachos';
+    item.price = 15;
+    expect(item.name).to.be.a('string');
+    expect(item.name).to.be.equal('nachos');
+    expect(item.price).to.be.a('number');
+    assert.isNumber(item.price);
+    expect(item.price).to.be.equal(15);
+});
 
-it("Should return an array containing all items in cart");
+it("Should return an array containing all items in cart", function() {
+    const nachos = new Object()
+    const beer = new Object()
+    const array = [nachos, beer];
+    expect(array).to.be.a('array');
+    expect(array[0]).to.be.a('object');
+});
 
 it("Should add a new item to the shopping cart");
 
