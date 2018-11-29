@@ -61,11 +61,44 @@ it("Should return an array containing all items in cart", function() {
     expect(array[0]).to.be.a('object');
 });
 
-it("Should add a new item to the shopping cart");
+it("Should add a new item to the shopping cart", function() {
+    const nachos = new Object()
+    const cart = []
+    const item = {
+        addItem: function(i) {
+            cart.push(i);
+        }
+    }
+    item.addItem(nachos);
+    expect(cart).to.be.a('array');
+    assert.isFunction(item.addItem);
+    expect(cart).to.include(nachos);
+});
 
-it("Should return the number of items in the cart");
+it("Should return the number of items in the cart", function() {
+    const nachos = new Object();
+    const beer = new Object();
+    const peanuts = new Object();
+    const cart = [nachos, beer, peanuts];
+    const numItems = function(array) {
+            return array.length - 1
+        }
+    expect(numItems(cart)).to.be.a('number');
+    assert.isFunction(numItems);
+    expect(cart.length -1).to.be.equal(numItems(cart));
+});
 
-it("Should remove items from cart");
+it("Should remove items from cart", function() {
+    const nachos = new Object();
+    const beer = new Object();
+    const peanuts = new Object();
+    const cart = [nachos, beer, peanuts];
+    const rmItems = function(i) {
+            cart.splice(i)
+        }
+    assert.isFunction(rmItems);
+    expect()
+});
 
 // ========================================================
 // Stretch Challenges
