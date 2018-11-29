@@ -20,9 +20,15 @@ it("should say hello", function() {
 // Level 1 Challenges
 // ========================================================
 
-it("should return the area of a 5 by 6 rectangle");
+it("should return the area of a 5 by 6 rectangle", function() {
+    const rectArea = utils.area();
+    expect(rectArea).to.be.a("integer");
+    expect(rectArea).to.be.equal(30);
+    assert.is.number(rectArea);
 
-it("should return the are of a circle of radius 5");
+});
+
+it("should return the area of a circle of radius 5");
 
 // ========================================================
 // Level 2 Challenges
